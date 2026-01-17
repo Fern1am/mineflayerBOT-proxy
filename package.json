@@ -1,0 +1,15 @@
+{
+  "name": "minecraft-bot-login",
+  "version": "1.0.0",
+  "description": "Minecraft bots with numbered names using Mineflayer",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "http-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "^7.0.0",
+    "mineflayer": "^4.9.0",
+    "mineflayer-auto-auth": "^2.0.0"
+  }
+}
