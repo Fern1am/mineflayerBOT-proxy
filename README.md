@@ -55,7 +55,7 @@ This will install:
 
 ### Setting up Proxies
 
-The application uses SOCKS5h proxies from Decodo for bot connections. Configure proxies in `proxies.json`:
+The application uses SOCKS5h proxies from Decodo for bot connections. Configure proxies in `proxies.json` with your actual credentials:
 
 ```json
 [
@@ -76,27 +76,30 @@ The application uses SOCKS5h proxies from Decodo for bot connections. Configure 
 ]
 ```
 
-#### Current Proxy Configuration
+#### Proxy Configuration Details
 
 - **Provider**: Decodo (SOCKS5h)
 - **Host**: dc.decodo.com
-- **Port Range**: 10001-10010
-- **Protocol**: SOCKS5h (recommended for Minecraft)
-- **Status**: 10 proxies configured
+- **Port Range**: 10001+ (configure as needed)
+- **Protocol**: SOCKS5h (required for Minecraft)
+- **Current Status**: Configured with Decodo credentials
 
-#### Using Decodo Proxies
+⚠️ **IMPORTANT SECURITY NOTE**: Never commit your actual credentials to version control! Use the template format above with placeholder values and replace with your real credentials locally.
 
-1. Visit [Decodo Dashboard](https://dashboard.decodo.com/) to create an account
-2. Select SOCKS5h proxy endpoints from the dashboard
-3. Each bot can use a different proxy to avoid rate limiting
-4. Decodo provides reliable proxy services for botting purposes
-5. Multiple proxies help avoid rate limiting and IP bans
+#### Using SOCKS5h Proxies
 
-#### Proxy Assignment
+1. Obtain proxy credentials from your provider (Decodo or similar)
+2. Update `proxies.json` with valid host, port, username, and password
+3. Each bot will rotate through the available proxies
+4. SOCKS5h proxies support Minecraft Java Edition connections
+5. Using multiple proxies helps avoid rate limiting and IP bans
 
-- Proxies are rotated across bots for even distribution
-- Each bot gets a unique proxy from the pool
-- If more bots than proxies, the rotation repeats from the start
+#### Proxy Rotation System
+
+- Proxies are distributed across bots in sequential order
+- Bot 1 uses proxy 1, Bot 2 uses proxy 2, etc.
+- If you have more bots than proxies, rotation cycles back to the first proxy
+- Ensure you have enough proxies configured for your bot count
 
 ## Usage
 
@@ -155,6 +158,7 @@ botlogin/
 - Verify the Minecraft server is running
 - Check the server address and port
 - Ensure your proxy credentials are correct
+- Make sure the proxy supports SOCKS5h protocol
 
 ### Bot names already exist on server
 - Use a different base name
@@ -162,18 +166,25 @@ botlogin/
 
 ### Proxy connection error
 - Verify proxy credentials in `proxies.json`
-- Check proxy availability on [Decodo Dashboard](https://dashboard.decodo.com/)
-- Ensure proxies support HTTP/HTTPS connections
+- Check proxy host and port configuration
+- Ensure proxies support SOCKS5h protocol
+- Test proxy availability with: `ping dc.decodo.com`
 
 ### "Cannot find module" errors
 - Run `npm install` again
 - Delete `node_modules` folder and reinstall: `rm -r node_modules && npm install`
 
+### Bots not using proxies correctly
+- Verify all proxies in `proxies.json` have host, port, username, and password fields
+- Check that `type` is set to `"socks5h"`
+- Ensure bot count matches or exceeds proxy count for proper distribution
+
 ## Requirements
 
 - Node.js 12+
 - Active Minecraft server (Java Edition)
-- Valid proxy credentials (optional but recommended)
+- Valid SOCKS5h proxy credentials
+- Stable internet connection
 
 ## License
 
