@@ -1,16 +1,72 @@
 [
   {
-    "host": "proxy.example.com",
-    "port": 8080,
-    "username": "your_username",
-    "password": "your_password",
-    "type": "http"
+    "host": "dc.decodo.com",
+    "port": 10001,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
   },
   {
-    "host": "proxy.example.com",
-    "port": 8080,
-    "username": "your_username_2",
-    "password": "your_password_2",
-    "type": "http"
+    "host": "dc.decodo.com",
+    "port": 10002,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10003,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10004,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10005,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10006,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10007,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10008,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10009,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
+  },
+  {
+    "host": "dc.decodo.com",
+    "port": 10010,
+    "username": "spsc8nfy3d",
+    "password": "R7ke3vczlwNp3+SfW4",
+    "type": "socks5h"
   }
 ]

@@ -2,6 +2,7 @@ const mineflayer = require('mineflayer');
 const AutoAuth = require('mineflayer-auto-auth');
 const readline = require('readline');
 const fs = require('fs');
+const { SocksProxyAgent } = require('socks-proxy-agent');
 
 
 const proxies = JSON.parse(fs.readFileSync('proxies.json', 'utf8'));
@@ -52,7 +53,7 @@ function createBots(baseName, count, host, port, password) {
 
     setTimeout(() => {
       createBot(botName, host, port, password, i);
-    }, i * 5000); // Create bots with 5000ms interval for reliability
+    }, i * 10); // Create bots with 10ms interval for reliability
   }
 }
 
@@ -62,6 +63,11 @@ function createBot(username, host, port, password, botNumber) {
   const proxyNum = Math.floor((botNumber - 1) / 2) + 1;
   console.log(`Connecting bot "${username}" to server ${host}:${port}...`);
   console.log(`Using proxy #${proxyNum}: ${proxy.host}:${proxy.port}`);
+
+  // Use SOCKS5 proxy for Minecraft TCP connections
+  console.log(`Using SOCKS5 proxy`);
+  const proxyUrl = `socks5h://${proxy.username}:${proxy.password}@${proxy.host}:${proxy.port}`;
+  const socksAgent = new SocksProxyAgent(proxyUrl);
 
   const botOptions = {
     host: host,
@@ -73,17 +79,9 @@ function createBot(username, host, port, password, botNumber) {
       password: password,
       logging: true,
       ignoreRepeat: true
-    } : undefined
+    } : undefined,
+    socksAgent: socksAgent
   };
-
-  // Use HTTP proxy for all connections
-  console.log(`Using HTTP proxy`);
-  const { HttpProxyAgent } = require('http-proxy-agent');
-  const { HttpsProxyAgent } = require('https-proxy-agent');
-  
-  const proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.host}:${proxy.port}`;
-  botOptions.httpAgent = new HttpProxyAgent(proxyUrl);
-  botOptions.httpsAgent = new HttpsProxyAgent(proxyUrl);
 
   const bot = mineflayer.createBot(botOptions);
 

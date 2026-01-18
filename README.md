@@ -55,32 +55,48 @@ This will install:
 
 ### Setting up Proxies
 
-1. Create a `proxies.json` file with proxy credentials:
+The application uses SOCKS5h proxies from Decodo for bot connections. Configure proxies in `proxies.json`:
 
 ```json
 [
   {
-    "host": "proxy.decodo.com",
-    "port": 8080,
+    "host": "dc.decodo.com",
+    "port": 10001,
     "username": "your_username",
-    "password": "your_password"
+    "password": "your_password",
+    "type": "socks5h"
   },
   {
-    "host": "proxy.decodo.com",
-    "port": 8080,
-    "username": "your_username_2",
-    "password": "your_password_2"
+    "host": "dc.decodo.com",
+    "port": 10002,
+    "username": "your_username",
+    "password": "your_password",
+    "type": "socks5h"
   }
 ]
 ```
 
+#### Current Proxy Configuration
+
+- **Provider**: Decodo (SOCKS5h)
+- **Host**: dc.decodo.com
+- **Port Range**: 10001-10010
+- **Protocol**: SOCKS5h (recommended for Minecraft)
+- **Status**: 10 proxies configured
+
 #### Using Decodo Proxies
 
 1. Visit [Decodo Dashboard](https://dashboard.decodo.com/) to create an account
-2. Obtain your proxy credentials from the dashboard
-3. Add the proxy details to `proxies.json`
+2. Select SOCKS5h proxy endpoints from the dashboard
+3. Each bot can use a different proxy to avoid rate limiting
 4. Decodo provides reliable proxy services for botting purposes
 5. Multiple proxies help avoid rate limiting and IP bans
+
+#### Proxy Assignment
+
+- Proxies are rotated across bots for even distribution
+- Each bot gets a unique proxy from the pool
+- If more bots than proxies, the rotation repeats from the start
 
 ## Usage
 
