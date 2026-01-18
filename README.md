@@ -47,8 +47,8 @@ npm install
 This will install:
 - `mineflayer` - Minecraft bot library
 - `mineflayer-auto-auth` - Auto-authentication plugin
-- `http-proxy-agent` - HTTP proxy support
-- `https-proxy-agent` - HTTPS proxy support
+- `socks-proxy-agent` - SOCKS5h proxy support
+- `socks` - SOCKS protocol library
 - `readline` - Command-line interface (built-in)
 
 ## Configuration
